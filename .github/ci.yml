@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: main.yml
+          name: artifact.sh
+          path: webstore-build
+          repo: Richard45364/webstore-front-end
+          search_artifacts: true
+
+      - name: Print content
+        run: |
+          cat ./webstore-build/artifact.sh
