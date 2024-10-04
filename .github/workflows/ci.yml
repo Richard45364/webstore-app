@@ -16,9 +16,9 @@ jobs:
           workflow: upload-artifact.yml
           name: artifact.sh
           path: webstore-build
-          repo: Richard45364/webstore-front-end
+          repo: Richard45364/webstore-frontend
           search_artifacts: true
 
       - name: Print content
         run: |
-          cat ./webstore-build/artifact.sh
+          bash ./webstore-build/artifact.sh
